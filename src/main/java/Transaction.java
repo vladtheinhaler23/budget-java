@@ -6,16 +6,16 @@ public class Transaction {
   private int amount;
   private int user_id;
 
-  public Transaction(int amount) {
-    this.amount = amount;
-  }
+  // public Transaction(int amount) {
+  //   this.amount = amount;
+  // }
 
-  public Transaction(Integer amount, int user_id) {
+  public Transaction(int amount, int user_id) {
     this.amount = amount;
     this.user_id = user_id;
   }
 
-  public Integer getAmount() {
+  public int getAmount() {
   return amount;
   }
 
@@ -61,7 +61,7 @@ public class Transaction {
       return false;
     } else {
       Transaction newTransaction = (Transaction) otherTransaction;
-      return this.getAmount().equals(newTransaction.getAmount()) &&
+      return this.getAmount() == (newTransaction.getAmount()) &&
              this.getId() == newTransaction.getId() &&
              this.getUserId() == newTransaction.getUserId();
     }
