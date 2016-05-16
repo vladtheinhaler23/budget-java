@@ -16,14 +16,16 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/users/:id", (request, response) -> {
+    post("/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       int budget = Integer.parseInt(request.queryParams("budget"));
       User newUser = new User(name, budget);
       newUser.save();
-      response.redirect("/users/" + newUser.getId());
-      return null;
-    });
+      model.put("users", User.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     get("/user/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();

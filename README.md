@@ -1,16 +1,16 @@
-# _Hair Salon_
+# _BUDget_
 
-#### _Java Week 3 Code Review Epicodus 2016_
+#### _Java Week 5 Team Week Code Project Epicodus 2016_
 
-#### By _**Elissa Sosland**_
+#### By _**Elissa Sosland, Joshua Logan, Cory Franks, Anthony Gold**_
 
 ## Description
 ```
-_This is a Java web app for a hair salon that lets a user view and add to a list of stylists, as well as click on stylists and view or add clients to the stylists. The input is stored in a database._
+_This is a Java web app for budgeting cannabis that lets a user view and add to a list of transactions, as well as click on users and view or add transactions for users. The input is stored in a database._
 ```
 
 ##Database Tables
-![Database](hair_salon_schema.png)
+![Database](budget_schema.png)
 
 ## Setup/Installation Requirements
 
@@ -18,14 +18,14 @@ _This is a Java web app for a hair salon that lets a user view and add to a list
 * _Clone the repository_
 * _Use console to enter directory_
 * _In a new console window run the command 'postgres' and keep running_
-* _In bash console run the command 'psql hair_salon < hair_salon.sql'_
+* _In bash console run the command 'psql budget < budget.sql'_
 * _In a new console window run the command 'psql' and run commands below:_
-* _'CREATE DATABASE hair_salon;' and then run '\c hair_salon;' to connect to the database_
+* _'CREATE DATABASE budget;' and then run '\c budget;' to connect to the database_
 
 * _DATABASE CREATED BY THESE COMMANDS:_
-* _'CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);'_
-* _'CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);'_
-* _'CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;'_
+* _'CREATE TABLE users (id serial PRIMARY KEY, name varchar, budget int);'_
+* _'CREATE TABLE transactions (id serial PRIMARY KEY, amount int, user_id int);'_
+* _'CREATE DATABASE budget_test WITH TEMPLATE budget;'_
 
 * _RUN THE WEB APP:_
 * _In bash console command 'gradle run'_
