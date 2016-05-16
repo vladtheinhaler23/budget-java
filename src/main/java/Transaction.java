@@ -16,7 +16,7 @@ public class Transaction {
   }
 
   public int getAmount() {
-  return amount;
+    return amount;
   }
 
   public int getId() {
@@ -38,10 +38,10 @@ public class Transaction {
     try (Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO transactions (amount, user_id) VALUES (:amount, :user_id);";
       this.id = (int) con.createQuery(sql, true)
-        .addParameter("amount", this.amount)
-        .addParameter("user_id", this.user_id)
-        .executeUpdate()
-        .getKey();
+      .addParameter("amount", this.amount)
+      .addParameter("user_id", this.user_id)
+      .executeUpdate()
+      .getKey();
     }
   }
 
@@ -49,8 +49,8 @@ public class Transaction {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM transactions WHERE id=:id;";
       Transaction transaction = con.createQuery(sql)
-        .addParameter("id", id)
-        .executeAndFetchFirst(Transaction.class);
+      .addParameter("id", id)
+      .executeAndFetchFirst(Transaction.class);
       return transaction;
     }
   }
@@ -62,8 +62,27 @@ public class Transaction {
     } else {
       Transaction newTransaction = (Transaction) otherTransaction;
       return this.getAmount() == (newTransaction.getAmount()) &&
-             this.getId() == newTransaction.getId() &&
-             this.getUserId() == newTransaction.getUserId();
+      this.getId() == newTransaction.getId() &&
+      this.getUserId() == newTransaction.getUserId();
+    }
+  }
+
+  public void update(int amount) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE transactions SET amount = :amount WHERE id = :id";
+      con.createQuery(sql)
+      .addParameter("amount", amount)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM transactions WHERE id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
     }
   }
 

@@ -64,4 +64,22 @@ public class TransactionTest {
     assertEquals(savedTransaction.getUserId(), myUser.getId());
   }
 
+  @Test
+  public void update_updatesTransactionDescription_true() {
+    Transaction myTransaction = new Transaction(400, 1);
+    myTransaction.save();
+    myTransaction.update(450);
+    assertEquals(450, Transaction.find(myTransaction.getId()).getAmount());
+  }
+
+  @Test
+  public void delete_deletesTransaction_true() {
+    Transaction myTransaction = new Transaction(250, 1);
+    myTransaction.save();
+    int myTransactionId = myTransaction.getId();
+    myTransaction.delete();
+    assertEquals(null, Transaction.find(myTransactionId));
+  }
+
+
 }
