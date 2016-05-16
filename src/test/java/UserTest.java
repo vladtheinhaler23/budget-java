@@ -74,4 +74,21 @@ public class UserTest {
     assertTrue(myUser.getTransactions().containsAll(Arrays.asList(transactions)));
   }
 
+  @Test
+  public void update_updatesUserName_true() {
+    User myUser = new User("Fozzy", 100);
+    myUser.save();
+    myUser.update("Fozzie");
+    assertEquals("Fozzie", User.find(myUser.getId()).getName());
+  }
+
+  @Test
+  public void delete_deletesUser_true() {
+    User myUser = new User("Gonzo", 100);
+    myUser.save();
+    int myUserId = myUser.getId();
+    myUser.delete();
+    assertEquals(null, User.find(myUserId));
+  }
+
 }
