@@ -1,0 +1,10 @@
+<h1>All Users</h1>
+
+#foreach ($user in $users)
+<ul>
+  <a href="/users/$user.getId()">$user.getName()</a>
+</ul>
+
+#end
+
+<a href="/" class="btn btn-info">Home</a>

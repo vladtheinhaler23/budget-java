@@ -1,0 +1,22 @@
+
+<h1>BUDget</h1>
+
+#if($users.size() > 0)
+<h1>Users</h1>
+#foreach ($user in $users)
+  <p><a href="/user/$user.getId()">$user.getName()</a></p>
+#end
+
+#else
+  <p>No users</p>
+#end
+
+<h2>Add a User</h2>
+<form action="/" method="post">
+  <label for="name">User Name</label>
+  <input id="name" name="name" type="text" required>
+
+  <div>
+    <button type="submit" class="btn">Add User</button>
+  </div>
+</form>
