@@ -41,16 +41,14 @@ public class User {
     }
   }
 
-  // public static String getTotalSpent() {
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT sum(amount) FROM transactions";
-  //     Query query = con.createQuery(sql);
-  //
-  //     ResultSet rs = query.executeQuery();
-  //
-  //
-  //     return rs;
-  //   }
+  public static int getTotalSpent() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT sum(amount) FROM transactions";
+      int totalSpent = con.createQuery(sql)
+      .executeAndFetchFirst(Integer.class);
+
+      return totalSpent;
+    }
 
   }
 
