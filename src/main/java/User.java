@@ -15,6 +15,10 @@ public class User {
     return name;
   }
 
+  public int getBudget() {
+    return budget;
+  }
+
   public int getId() {
     return id;
   }
@@ -35,6 +39,19 @@ public class User {
         .executeUpdate()
         .getKey();
     }
+  }
+
+  // public static String getTotalSpent() {
+  //   try (Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT sum(amount) FROM transactions";
+  //     Query query = con.createQuery(sql);
+  //
+  //     ResultSet rs = query.executeQuery();
+  //
+  //
+  //     return rs;
+  //   }
+
   }
 
   public static User find(int id) {

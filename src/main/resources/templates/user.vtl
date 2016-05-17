@@ -1,11 +1,13 @@
 
 <h1>$user.getName()</h1>
+<h2>Budget: $user.getBudget()</h1>
+<h2>Total Spent: $user.getTotalSpent()</h2>
 
 <h2>Transactions:</h2>
 
 #if($transactions.size() > 0)
 #foreach($transaction in $user.getTransactions())
-  <p>$transaction.getName()</p>
+  <p>$transaction.getAmount()</p>
 #end
 
 #else
