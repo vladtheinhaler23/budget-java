@@ -1,7 +1,51 @@
+<div class="container">
+  <div class="jumbotron" id="userBudget">
+    <div id="displayUser">$user.getName()</div>
+    <div id="myProgressbar" class="progress">
+      <div id="underBudget" class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">
+        <span id="underBudgetProgress"></span>
+      </div>
+      <div id="overBudget" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width: 0%;">
+        <span id="overBudgetProgress"></span>
+      </div>
+    </div>
+    <div id="displaySpent">$user.getTotalSpent()</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <form action="/transaction/new/$user.getId()" method="post">
+            <input name="newTransactionBtn" type="image" src="budget-logo-button-small.png"   alt="Submit">
+            <label id="newTransactionBtnLabel" for="newTransaactionBtn">NEW TRANSACTION</label>
+          </form>
+        </div>
+        <div class="col-xs-4">
+          <form action="" method="post">
+            <input id="recentPurchaseBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+            <label id="recentPurchaseBtnLabel" for="recentPurchaseBtn">ADD LAST: $ <span id="recentPurchaseAmount"></span>.00</label>
+          </form>
+        </div>
+        <div class="col-xs-4">
+          <form action="/transactions/delete_all/$user.getId()" method="post">
+            <input id="newMonthBtn" type="image" src="budget-logo-button-small.png"  alt="Submit">
+            <label id="newMonthBtnLabel" for="newMonthBtn">NEW BUDGET</label>
+          </form>
+        </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 
 <h1>$user.getName()</h1>
 <h2>Budget: $user.getBudget()</h1>
 <h2>Total Spent: $user.getTotalSpent()</h2>
+
 
 <h2>Transactions:</h2>
 
@@ -13,16 +57,3 @@
 #else
   <h2>$user.getName() does not currently have any transactions</h2>
 #end
-
-<h2>Add a Transaction:</h2>
-<form action="/user/$user.getId()" method="post">
-  <label for="amount">Transaction Amount</label>
-  <input id="amount" name="amount" type="text" required>
-
-  <div>
-    <button type="submit" class="btn">Add Transaction</button>
-  </div>
-  <div>
-    <a href="/" class="btn" id="home">Back To Homepage</a>
-  </div>
-</form>

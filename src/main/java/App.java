@@ -18,8 +18,8 @@ public class App {
 
     post("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String name = request.queryParams("name");
-      int budget = Integer.parseInt(request.queryParams("budget"));
+      String name = request.queryParams("newUserName");
+      int budget = Integer.parseInt(request.queryParams("newUserBudget"));
       User newUser = new User(name, budget);
       newUser.save();
       Transaction startingTransaction = new Transaction(0, newUser.getId());
@@ -49,6 +49,35 @@ public class App {
       model.put("template", "templates/user.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/transaction/new/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      model.put("user", user);
+      model.put("template", "templates/transaction-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/transaction/new/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      model.put("user", user);
+      model.put("template", "templates/transaction-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/transactions/delete_all/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      user.deleteAll();
+      Transaction newTransaction = new Transaction(0, user.getId());
+      newTransaction.save();
+      model.put("user", user);
+      model.put("template", "templates/user.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
 
   }
 }

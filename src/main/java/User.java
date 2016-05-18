@@ -100,7 +100,14 @@ public class User {
       .addParameter("id", id)
       .executeUpdate();
     }
-}
+  }
 
-
+  public void deleteAll() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM transactions WHERE user_id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeUpdate();
+    }
+  }
 }
