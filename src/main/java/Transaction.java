@@ -28,7 +28,7 @@ public class Transaction {
   }
 
   public static List<Transaction> all() {
-    String sql = "SELECT id, amount, user_id FROM transactions;";
+    String sql = "SELECT id, amount, user_id FROM transactions";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Transaction.class);
     }
@@ -36,7 +36,7 @@ public class Transaction {
 
   public void save() {
     try (Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO transactions (amount, user_id) VALUES (:amount, :user_id);";
+      String sql = "INSERT INTO transactions (amount, user_id) VALUES (:amount, :user_id)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("amount", this.amount)
       .addParameter("user_id", this.user_id)
@@ -47,7 +47,7 @@ public class Transaction {
 
   public static Transaction find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM transactions WHERE id=:id;";
+      String sql = "SELECT * FROM transactions WHERE id=:id";
       Transaction transaction = con.createQuery(sql)
       .addParameter("id", id)
       .executeAndFetchFirst(Transaction.class);
@@ -79,12 +79,13 @@ public class Transaction {
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM transactions WHERE id = :id;";
+      String sql = "DELETE FROM transactions WHERE id = :id";
       con.createQuery(sql)
       .addParameter("id", id)
       .executeUpdate();
     }
   }
+
 
 
 
