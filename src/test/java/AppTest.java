@@ -56,5 +56,31 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("500");
     }
 
+    @Test
+    public void transactionUpdate() {
+      User myUser = new User("Beaker");
+      myUser.save();
+      Transaction myTransaction = new Transaction("20", myUser.getId());
+      myTransaction.save();
+      String transactionPath = String.format("http://localhost:4567/users/%d/transactions/%d", myUser.getId(), myTransaction.getId());
+      goTo(transactionPath);
+      fill("#amount").with("30");
+      submit("update-transaction");
+      assertThat(pageSource()).contains("30");
+    }
+
+    @Test
+    public void transactionDelete() {
+      User myUser = new User("Animal");
+      myUser.save();
+      Transaction myTransaction = new Transaction("20", myUser.getId());
+      myTransaction.save();
+      String transactionPath = String.format("http://localhost:4567/categories/%d/transactions/%d", myUser.getId(), myTransaction.getId());
+      goTo(transactionPath);
+      submit("#delete-transaction");
+      assertEquals(0, Transaction.all().size());
+    }
+
+
 
 }
