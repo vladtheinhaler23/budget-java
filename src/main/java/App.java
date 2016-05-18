@@ -22,6 +22,8 @@ public class App {
       int budget = Integer.parseInt(request.queryParams("budget"));
       User newUser = new User(name, budget);
       newUser.save();
+      Transaction startingTransaction = new Transaction(0, newUser.getId());
+      startingTransaction.save();
       model.put("users", User.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);

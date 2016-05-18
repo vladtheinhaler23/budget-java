@@ -41,10 +41,11 @@ public class User {
     }
   }
 
-  public static int getTotalSpent() {
+  public int getTotalSpent() {
     try (Connection con = DB.sql2o.open()) {
-      String sql = "SELECT sum(amount) FROM transactions";
+      String sql = "SELECT sum(amount) FROM transactions WHERE user_id=:id";
       int totalSpent = con.createQuery(sql)
+      .addParameter("id", this.id)
       .executeAndFetchFirst(Integer.class);
 
       return totalSpent;
