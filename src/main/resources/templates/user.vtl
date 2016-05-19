@@ -35,22 +35,16 @@
 
         </div>
       </div>
+        <h2>Transactions:</h2>
 
+        #if($transactions.size() > 0)
+        #foreach($transaction in $user.getTransactions())
+          <p>$transaction.getAmount()</p>
+        #end
+
+        #else
+          <h2>$user.getName() does not currently have any transactions</h2>
+        #end
     </div>
   </div>
 </div>
-
-
-
-
-
-<h2>Transactions:</h2>
-
-#if($transactions.size() > 0)
-#foreach($transaction in $user.getTransactions())
-  <p>$transaction.getAmount()</p>
-#end
-
-#else
-  <h2>$user.getName() does not currently have any transactions</h2>
-#end
