@@ -5,7 +5,7 @@ import org.sql2o.*;
 import org.junit.*;
 import org.fluentlenium.adapter.FluentTest;
 import org.junit.ClassRule;
-
+import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest extends FluentTest {
@@ -58,9 +58,9 @@ public class AppTest extends FluentTest {
 
     @Test
     public void transactionUpdate() {
-      User myUser = new User("Beaker");
+      User myUser = new User("Beaker", 100);
       myUser.save();
-      Transaction myTransaction = new Transaction("20", myUser.getId());
+      Transaction myTransaction = new Transaction(20, myUser.getId());
       myTransaction.save();
       String transactionPath = String.format("http://localhost:4567/users/%d/transactions/%d", myUser.getId(), myTransaction.getId());
       goTo(transactionPath);
@@ -71,9 +71,9 @@ public class AppTest extends FluentTest {
 
     @Test
     public void transactionDelete() {
-      User myUser = new User("Animal");
+      User myUser = new User("Animal", 100);
       myUser.save();
-      Transaction myTransaction = new Transaction("20", myUser.getId());
+      Transaction myTransaction = new Transaction(20, myUser.getId());
       myTransaction.save();
       String transactionPath = String.format("http://localhost:4567/categories/%d/transactions/%d", myUser.getId(), myTransaction.getId());
       goTo(transactionPath);
@@ -81,6 +81,25 @@ public class AppTest extends FluentTest {
       assertEquals(0, Transaction.all().size());
     }
 
+    @Test
+    public void userNameIsUpdated() {
+      User testUser = new User("Kermie");
+      testUser.save();
+      String url = String.format("http://localhost:4567/users/%d", testUser.getId());
+      goTo(url);
+      fill("#update").with("Kermit");
+      submit("#update-submit");
+      assertThat(pageSource().contains("Kermit"));
+    }
 
+    @Test
+    public void userIsDeleted() {
+      User testUser = new User("Piggy");
+      testUser.save();
+      String url = String.format("http://localhost:4567/users/%d", testUser.getId());
+      goTo(url);
+      submit("#delete-user");
+      assertFalse(pageSource().contains("Piggy"));
+    }
 
 }
