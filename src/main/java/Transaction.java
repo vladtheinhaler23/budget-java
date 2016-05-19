@@ -6,10 +6,6 @@ public class Transaction {
   private int amount;
   private int user_id;
 
-  // public Transaction(int amount) {
-  //   this.amount = amount;
-  // }
-
   public Transaction(int amount, int user_id) {
     this.amount = amount;
     this.user_id = user_id;
