@@ -1,0 +1,15 @@
+<h1>$transaction.getAmount()</h1>
+
+<p>Edit transaction:</p>
+
+<form action="/users/$transaction.getUserId()/transactions/$transaction.getId()" method="post">
+  <label for="amount">Transaction Amount</label>
+  <input id="amount" naem="amount" type="number">
+  <button type="submit" class="btn btn-info" id="update-transaction">Update transaction</button>
+</form>
+
+<form action="/users/$transaction.getUserId()/transactions/$transaction.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-transaction">Delete Transaction</button>
+</form>
+
+<a href="/users/$user.getId()">Return to $user.getName()</a>
