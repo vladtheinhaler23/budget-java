@@ -16,10 +16,22 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/about-us", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/about-us.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/vision", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/vision.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     post("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String name = request.queryParams("name");
-      int budget = Integer.parseInt(request.queryParams("budget"));
+      String name = request.queryParams("newUserName");
+      int budget = Integer.parseInt(request.queryParams("newUserBudget"));
       User newUser = new User(name, budget);
       newUser.save();
       Transaction startingTransaction = new Transaction(0, newUser.getId());
@@ -50,6 +62,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+
     post("/users/:user_id/transactions/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
@@ -66,10 +79,34 @@ public class App {
       Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
       User user = User.find(transaction.getUserId());
       transaction.delete();
+
+    get("/transaction/new/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      model.put("user", user);
+      model.put("template", "templates/transaction-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/transaction/new/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      model.put("user", user);
+      model.put("template", "templates/transaction-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/transactions/delete_all/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      User user = User.find(Integer.parseInt(request.params(":id")));
+      user.deleteAll();
+      Transaction newTransaction = new Transaction(0, user.getId());
+      newTransaction.save();
       model.put("user", user);
       model.put("template", "templates/user.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
 
   }
 }

@@ -7,9 +7,27 @@
   </head>
   <body>
     <div class="title container">
-      <p>BUDget!</p>
-    </div>
 
+    </div>
+    <div class="container navbarCont">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand text-muted" href="vision.html">The Budget Vision</a>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about-us">Our Team</a></li>
+            <li><a href="/vision">Our Vision</a></li>
+            <li><a href="mailto:esosland@gmail.com">Contact</a></li>
+            <li><button title="Create a new user" id="resetStorage" type="text" alt="Submit"><span class="glyphicon glyphicon-trash"></span></button></li>
+        </div>
+      </div>
+    </div>
     <div class="container">
 
       #parse( $template )

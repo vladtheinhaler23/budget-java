@@ -8,17 +8,64 @@
 #end
 
 #else
-  <p>No users</p>
+<div class="container">
+  <div class="jumbotron" id="disclaimer">
+    <h1>Disclaimer</h1>
+    <p>Disclaimer:
+      Cannabis is illegal under federal law.
+      AK, CO, OR, WA and the District of Columbia have legalized cannabis for recreational use.
+      AK, AZ, CA, CO, CT, DE, HI, IL, ME, MD, MA, MI, MN, MT, NV, NH, NJ, NM, NY, OR, VT, and WA  have legalized cannabis for medicinal use.
+
+      Cannabis should be used in accordance with the law.
+      Budget does not promote the illegal sale or use of cannabis in any way.
+      I have read and acknowledge these statements.</p>
+
+
+      <!-- <input id="over21" type="image" src="budget-logo-button.png" alt="Submit">
+      <label id="over21Label" for="over21">ENTER</label> -->
+
+
+
+  </div>
+</div>
 #end
 
-<h2>Add a User</h2>
-<form action="/" method="post">
-  <label for="name">User Name</label>
-  <input id="name" name="name" type="text" required>
-  <label for="budget">User Budget</label>
-  <input id="budget" name="budget" type="number" required>
 
-  <div>
-    <button type="submit" class="btn">Add User</button>
+<div class="container">
+  <div class="jumbotron" id="userInfo">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1 id="userInfoH1">BUDget</h1>
+
+        <h2 id="userInfoH2">The Cannabis Dashboard</h2>
+
+        <h3 id="userInfoH3">Now you don't have to keep track of your Cannabis use on those rolling papers</h3>
+
+        <p id="userInfoP">How to use BUDget -
+        <br>
+        -Enter your name and your spending goal
+        <br>
+        -From there you can see your BUDget and how much of it you've used so far
+        <br>
+        -If you buy the same amount every time, just use the Recent Transaction Button and we will just add that to your total
+        <br>
+        -Leave BUDget and go about your day to day, but don't forget to come back next time you stop by your local dispensary, we will have your BUDget here for you</p>
+      </div>
+      <div class="col-xs-6">
+        <form id="newUser" action"/" method="post">
+          <div class="form-group">
+            <label for="newUserName">First name:</label>
+            <input type="text" class="form-control" placeholder="Enter your name here..." name="newUserName">
+          </div>
+          <div class="form-group">
+            <label for="newUserBudget">Budget Amount:</label>
+            <input type="text" class="form-control" placeholder="Enter you budget amount..." name="newUserBudget">
+          </div>
+          <input id="newUserBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+          <label id="newUserBtnLabel" for="newUserBtn">GET STARTED</label>
+        </form>
+      </div>
+
+    </div>
   </div>
-</form>
+</div>

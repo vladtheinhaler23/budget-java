@@ -65,7 +65,7 @@ public class User {
 
   public List<Transaction> getTransactions() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM transactions where user_id=:id;";
+      String sql = "SELECT * FROM transactions WHERE user_id=:id ORDER BY amount DESC LIMIT 5";
       return con.createQuery(sql)
         .addParameter("id", this.id)
         .executeAndFetch(Transaction.class);
@@ -100,7 +100,25 @@ public class User {
       .addParameter("id", id)
       .executeUpdate();
     }
-}
+  }
 
+  public void deleteAll() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM transactions WHERE user_id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeUpdate();
+    }
+  }
 
+  public int lastTransaction() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT amount FROM transactions WHERE user_id=:id ORDER BY amount DESC";
+      int lastTransaction = con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeAndFetchFirst(Integer.class);
+
+      return lastTransaction;
+    }
+  }
 }
