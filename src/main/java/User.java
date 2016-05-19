@@ -65,7 +65,7 @@ public class User {
 
   public List<Transaction> getTransactions() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM transactions WHERE user_id=:id;";
+      String sql = "SELECT * FROM transactions WHERE user_id=:id ORDER BY amount DESC LIMIT 5";
       return con.createQuery(sql)
         .addParameter("id", this.id)
         .executeAndFetch(Transaction.class);

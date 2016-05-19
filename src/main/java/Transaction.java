@@ -28,7 +28,7 @@ public class Transaction {
   }
 
   public static List<Transaction> all() {
-    String sql = "SELECT id, amount, user_id FROM transactions";
+    String sql = "SELECT id, amount, user_id FROM transactions ORDER BY amount DESC";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Transaction.class);
     }
