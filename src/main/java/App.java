@@ -109,20 +109,20 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/users/:id/update", (request, response) -> {
+    post("/user/:id/update", (request, response) -> {
       int userId = Integer.parseInt(request.params("id"));
       User user = User.find(userId);
       String newName = request.queryParams("update");
       user.update(newName);
-      response.redirect("/users/" + user.getId());
+      response.redirect("/user/" + user.getId());
       return null;
     });
 
-    post("/users/:id/delete", (request, response) -> {
+    post("/user/:id/delete", (request, response) -> {
       int userId = Integer.parseInt(request.params("id"));
       User user = User.find(userId);
       user.delete();
-      response.redirect("/users");
+      response.redirect("/");
       return null;
     });
 

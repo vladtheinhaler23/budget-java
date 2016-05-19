@@ -51,12 +51,12 @@
 
 <p>Edit user:</p>
 
-<form action="/users/$user.getId()/update" method="post">
+<form action="/user/$user.getId()/update" method="post">
     <input id="update" name="update" type="text" required>
     <button type="submit" class="btn btn-success" id="update-submit">Update User Name</button>
   </form>
 
 
-  <form action="/users/$user.getId()/delete" method='post'>
+  <form action="/user/$user.getId()/delete" method='post'>
     <button type="submit" class="btn btn-success" id="delete-user">Delete User</button>
   </form>
