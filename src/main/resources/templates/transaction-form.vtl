@@ -1,12 +1,16 @@
-<h2>Add a Transaction:</h2>
-<form action="/user/$user.getId()" method="post">
-  <label for="amount">Transaction Amount</label>
-  <input id="amount" name="amount" type="text" required>
+<div class="container">
+  <div id="newTransactionJumbotron" class="jumbotron">
+    <h1>Add a Transaction:</h1>
+    <form action="/user/$user.getId()" method="post">
+      <label for="amount">Transaction Amount:</label>
+      <input id="amount" name="amount" type="text" required>
 
-  <div>
-    <button type="submit" class="btn">Add Transaction</button>
+      <div>
+        <input id="newTransactionBtn" type="image" src="/budget-logo-button-small.png"  alt="Submit"> <br>
+        <label id="newTransactionBtnLabel" for="newTransactionBtn">NEW TRANSACTION</label>
+      </div>
+      <div>
+      </div>
+    </form>
   </div>
-  <div>
-    <a href="/" class="btn" id="home">Back To Homepage</a>
-  </div>
-</form>
+</div>

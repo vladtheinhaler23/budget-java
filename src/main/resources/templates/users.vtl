@@ -1,8 +1,12 @@
-<h1>All Users</h1>
+<div class="container">
+  <div id="allUsersJumbotron" class="jumbotron">
+    <h1>All Users</h1>
 
-#foreach ($user in $users)
-<ul>
-  <a href="/user/$user.getId()">$user.getName()</a>
-</ul>
+    #foreach ($user in $users)
+    <ul id="userList">
+      <p id="userListItem"><a id="userHref" href="/user/$user.getId()">$user.getName()</a></p>
+    </ul>
 
-#end
+    #end
+  </div>
+</div>
