@@ -68,6 +68,467 @@ body {
 
 
 
+
+h2.teamName {
+  font-family: 'Slabo 27px', serif;
+  font-size: 70px;
+}
+
+#userInfoH2 {
+  font-size: 30px;
+  text-align: left;
+}
+#userInfoH3 {
+ text-align: left;
+}
+#userInfoP {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#userInfo{
+  margin-top: 50px;
+  background-color: white;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  min-height: 600px;
+}
+
+#allUsersJumbotron {
+  margin-top: 50px;
+  background-color: white;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  min-height: 200px;
+}
+
+#newTransactionJumbotron {
+  margin-top: 50px;
+  display: block;
+  background-color: white;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  min-height: 400px;
+}
+
+#userList {
+  display: inline-block;
+}
+
+#userListItem {
+  line-height: 100px;
+  margin: 30px;
+}
+
+#userHref {
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+  border: 5px solid gray;
+  border-radius: 50%;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+
+#userHref:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 20px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newUserName {
+  background-color: #ffffff;
+  border: 2px inset black;
+  box-shadow: 1px 1px 2px 1px green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#newUserBudget {
+  background-color: #ffffff;
+  border: 2px inset black;
+  box-shadow: 1px 1px 2px 1px green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#newSpent {
+  background-color: #ffffff;
+  border: 2px inset black;
+  box-shadow: 1px 1px 2px 1px green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 210px;
+  min-width: 210px;
+  min-height: 100px;
+  max-height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+}
+
+.buttonText {
+  font-size: 20px;
+}
+
+
+.progress {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 0px 0px 4px 3px black;
+}
+
+
+#over21Label  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+}
+#over21Label:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#over21:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#over21 {
+  border-radius: 50%;
+  border: 5px solid black;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#over21:active {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+
+}
+#over21:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#newUserBtnLabel  {
+  margin-top: 10px;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+}
+#newUserBtnLabel:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+  color: #bcdb93
+
+}
+#newUserBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newUserBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#newUserBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newSpentBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#newSpentBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#recentPurchaseBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+
+}
+#recentPurchaseBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#recentPurchaseBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+
+}
+#newMonthBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#newMonthBtnLabel {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+}
+#newTransactionBtnLabel {
+  color: black;
+  cursor: pointer;
+  text-shadow: 2px 2px #bcdb93;
+}
+#newTransactionBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#newBudgetBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#newBudgetBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#newSpentBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+
+}
+#newSpentBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newSpentBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#resetStorage {
+  border-style: none;
+  background-color: #303031;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+
+}
+
+#newTransactionBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#newTransactionBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newTransactionBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+#recentPurchaseBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#recentPurchaseBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#recentPurchaseBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+#newMonthBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#newMonthBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#newMonthBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+#newBudgetBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#newBudgetBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#newBudgetBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+
+#displayUserh3 {
+  text-align: left;
+  font-size: 40px
+}
+#displayUserh4 {
+  font-size: 30px;
+}
+#underBudgetProgress {
+  line-height: 65px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px white;
+}
+#overBudgetProgress {
+  line-height: 65px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px white;
+}
+.glyphicon {
+  color: white;
+  line-height: 30px;
+  background-color: #303031;
+  font-size: 25px;
+}
+.glyphicon:hover {
+  color: #797596;
+  line-height: 30px;
+  background-color: #303031;
+  font-size: 25px;
+}
+#newTransactionBtnCont {
+  display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+#returnUserBudget {
+  margin-left: 10px;
+  max-width: 575px;
+}
+
+
+
 /*NAVBAR CSS*/
 
 .navbar-default {
