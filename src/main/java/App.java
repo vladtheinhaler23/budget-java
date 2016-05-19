@@ -74,20 +74,13 @@ public class App {
     post("/users/:user_id/transactions/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
-      String amount = request.queryParams("amount");
+      int amount = Integer.parseInt(request.queryParams("amount"));
       User user = User.find(transaction.getUserId());
       transaction.update(amount);
       String url = String.format("/users/%d/transactions/%d", user.getId(), transaction.getId());
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
-    post("/users/:user_id/transactions/:id/delete", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
-      User user = User.find(transaction.getUserId());
-      transaction.delete();
-
 
     get("/transaction/new/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
