@@ -63,6 +63,7 @@ public class App {
     }, new VelocityTemplateEngine());
 
 
+
     post("/users/:user_id/transactions/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
@@ -79,6 +80,7 @@ public class App {
       Transaction transaction = Transaction.find(Integer.parseInt(request.params("id")));
       User user = User.find(transaction.getUserId());
       transaction.delete();
+
 
     get("/transaction/new/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -106,7 +108,6 @@ public class App {
       model.put("template", "templates/user.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
 
   }
 }
