@@ -1,3 +1,34 @@
+#disclaimer {
+  margin-top: 50px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 100px;
+  border-radius: 50%;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 99px;
+
+}
+
+.jumbotron#disclaimer{
+  font-family: 'Slabo 27px', serif;
+  font-size: 99px;
+}
+
+#userInfo{
+  margin-top: 50px;
+  background-color: white;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  min-height: 600px;
+}
+
+
+
+
+
 /*NAVBAR CSS*/
 
 .navbar-default {

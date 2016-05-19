@@ -19,9 +19,10 @@
           </form>
         </div>
         <div class="col-xs-4">
-          <form action="" method="post">
+          <form action="/user/$user.getId()" method="post">
             <input id="recentPurchaseBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
-            <label id="recentPurchaseBtnLabel" for="recentPurchaseBtn">ADD LAST: $ <span id="recentPurchaseAmount"></span>.00</label>
+            <input name="amount" type="hidden" value="$user.lastTransaction()">
+            <label id="recentPurchaseBtnLabel" for="recentPurchaseBtn">ADD LAST: $ $user.lastTransaction().00</label>
           </form>
         </div>
         <div class="col-xs-4">
@@ -41,11 +42,6 @@
 
 
 
-
-<h1>$user.getName()</h1>
-<h2>Budget: $user.getBudget()</h1>
-<h2>Total Spent: $user.getTotalSpent()</h2>
-<h2> $user.lastTransaction()</h2>
 
 
 <h2>Transactions:</h2>
