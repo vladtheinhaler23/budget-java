@@ -11,6 +11,7 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("user", User.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -42,8 +43,8 @@ public class App {
       newUser.save();
       Transaction startingTransaction = new Transaction(0, newUser.getId());
       startingTransaction.save();
-      model.put("users", User.all());
-      model.put("template", "templates/index.vtl");
+      model.put("user", newUser);
+      model.put("template", "templates/user.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

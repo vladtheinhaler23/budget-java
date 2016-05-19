@@ -1,12 +1,4 @@
-<h1>Budget<h1>
 
-#if($users.size() > 0)
-<h1>Users</h1>
-#foreach ($user in $users)
-  <p><a href="/user/$user.getId()">$user.getName()</a></p>
-#end
-
-#else
 <img class="logo" src="Logo-Transparent.png" alt="budget logo"/>
 <div class="container">
   <div class="jumbotron" id="disclaimer">
