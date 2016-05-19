@@ -1,3 +1,16 @@
+body {
+  background-color: #bcdb93
+}
+
+.navbar {
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbarCont {
+  margin-bottom: 100px;
+}
+
 #disclaimer {
   margin-top: 50px;
   text-align: center;
@@ -10,22 +23,43 @@
 
 }
 
-.jumbotron#disclaimer{
-  font-family: 'Slabo 27px', serif;
-  font-size: 99px;
-}
+#transaction_input{
+  margin-top: 50px;
+  background-color: white;
+  padding: 75px;
+  border: 3px outset black;
+  border-radius: 100%;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  max-height: 600px;
+  min-height: 400px;
+  min-width: 800px;
 
-#userInfo{
+}
+#userBudget{
   margin-top: 50px;
   background-color: white;
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
   font-size: 30px;
   text-align: center;
-  min-height: 600px;
+  min-width: 800px;
+
 }
 
-
+.logo {
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: 30px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 10px 3px #8ED081;
+  padding: 7px;
+}
 
 
 
