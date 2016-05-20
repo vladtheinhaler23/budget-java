@@ -2,7 +2,7 @@
 
 #### _Java Week 5 Team Week Code Project Epicodus 2016_
 
-#### By _**Elissa Sosland, Joshua Logan, Cory Franks, Anthony Gold**_
+#### By _**Elissa Sosland, Joshua Logan, Cory Franks**_
 
 ## Description
 ```
@@ -33,7 +33,8 @@ _This is a Java web app for budgeting cannabis that lets a user view and add to 
 
 ## Known Bugs
 
-_No known bugs at this time_
+_Bootstrap progress bars are not currently functioning_
+_Only way to set a new budget is to create a new user_
 
 ## Technologies Used
 
