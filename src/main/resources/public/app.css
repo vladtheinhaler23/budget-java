@@ -118,6 +118,10 @@ h2.teamName {
   min-height: 400px;
 }
 
+#editContainer {
+  display: inline-block;
+}
+
 #userList {
   display: inline-block;
 }

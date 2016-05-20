@@ -1,6 +1,7 @@
 <div class="container">
   <div class="jumbotron" id="userBudget">
-    <div id="displayUser">$user.getName()</div>
+    <div id="displayUser">Current User: $user.getName()</div>
+
     <div id="myProgressbar" class="progress">
       <div id="underBudget" class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">
         <span id="underBudgetProgress"></span>
@@ -9,7 +10,7 @@
         <span id="overBudgetProgress"></span>
       </div>
     </div>
-    <div id="displaySpent">$user.getTotalSpent()</div>
+    <div id="displaySpent">Total Spent: $user.getTotalSpent()</div>
     <div class="container">
       <div class="row">
         <div class="col-xs-4">
@@ -45,18 +46,19 @@
         #else
           <h2>$user.getName() does not currently have any transactions</h2>
         #end
+        <div id="editContainer" class="container">
+          <form action="/user/$user.getId()/update" method="post">
+            <label for="update">UPDATE USER</label>
+            <input id="update" name="update" type="text" required>
+            <button type="submit" class="btn btn-success" id="update-submit">Update User Name</button>
+          </form>
+
+
+          <form action="/user/$user.getId()/delete" method='post'>
+            <button type="submit" class="btn btn-success" id="delete-user">Delete User</button>
+          </form>
+        </div>
+
     </div>
   </div>
 </div>
-
-<p>Edit user:</p>
-
-<form action="/user/$user.getId()/update" method="post">
-    <input id="update" name="update" type="text" required>
-    <button type="submit" class="btn btn-success" id="update-submit">Update User Name</button>
-  </form>
-
-
-  <form action="/user/$user.getId()/delete" method='post'>
-    <button type="submit" class="btn btn-success" id="delete-user">Delete User</button>
-  </form>
